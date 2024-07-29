@@ -317,7 +317,7 @@ export default function Header(props) {
                   className="w-[8%] h-[5%] p-1 rounded-xl bg-bpink hover:bg-pink flex items-center justify-center absolute right-[5%]"
                   onClick={closeCart}
                 >
-                  <img src="src/assets/close-outline.svg" alt="" />
+                  <i class="fa-solid fa-xmark fa-xl"></i>
                 </button>
               </div>
 
