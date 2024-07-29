@@ -6,7 +6,7 @@ export default function CloseButton(props) {
           onClick={props.closeUserModal}
           className="w-[40px] h-[40px] font-bold border-4 border-gray-700 rounded-full bg-white hover:bg-peach"
         >
-          <img src="src/assets/close-outline.svg" alt="" />
+          <i className="fa-solid fa-xmark fa-xl"></i>
         </button>
       </div>
     </>

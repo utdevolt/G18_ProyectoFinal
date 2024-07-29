@@ -238,13 +238,19 @@ export default function Header(props) {
     saveDataInLocalStorage();
   });
 
-  const handlePagar = () => {
-    console.log(
-      cartRenderProducts,
-      cartRenderUnits,
-      cartTotalPrice,
-      cartTotalUnits
-    );
+  const showTotalPriceInCart = (price) => {
+    const str = price.toString().split(".")[1];
+
+    if (Number.isInteger(price)) return price.toString().concat(".00");
+
+    switch (str.length) {
+      case 1:
+        return price.toString().concat("0");
+      case 2:
+        return price;
+      default:
+        return price.toString();
+    }
   };
 
   const customization = {
@@ -253,6 +259,10 @@ export default function Header(props) {
       borderRadius: "6px",
     },
   };
+
+  const brand = {
+    brand: "blank"
+  }
 
   return (
     <>
@@ -317,7 +327,7 @@ export default function Header(props) {
                   className="w-[8%] h-[5%] p-1 rounded-xl bg-bpink hover:bg-pink flex items-center justify-center absolute right-[5%]"
                   onClick={closeCart}
                 >
-                  <img src="src/assets/close-outline.svg" alt="" />
+                  <i className="fa-solid fa-xmark fa-xl"></i>
                 </button>
               </div>
 
@@ -334,7 +344,7 @@ export default function Header(props) {
                   {" "}
                   TOTAL:{" "}
                   <span className="flex justify-center items-center rounded-r-xl w-3/5 h-full text-center text-2xl text-black bg-white">
-                    S/.{cartTotalPrice.toString().concat("0")}
+                    S/.{showTotalPriceInCart(cartTotalPrice)}
                   </span>
                 </div>
 
@@ -342,7 +352,8 @@ export default function Header(props) {
                   <Wallet
                     initialization={{
                       preferenceId:
-                        "1146510377-7ce92a1d-61a2-482c-9586-6d02740b0888",
+                        "1146510377-35b63e22-94d7-46e3-be93-99c49d21d337",
+                      redirectMode: "blank",
                     }}
                     customization={customization}
                   />
