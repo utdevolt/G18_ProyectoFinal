@@ -1,0 +1,3 @@
+// ACÁ COLOCAREMOS TODAS LAS FUNCIONES DE LA WEB
+
+// LocalStorage
